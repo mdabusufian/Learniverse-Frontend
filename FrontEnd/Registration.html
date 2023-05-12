@@ -1,5 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+		var app = angular.module("learniverse",[]);
+		//
+		app.controller('RegCtrl',function($scope,$http){
+			$scope.Reg=function(){
+				var v = $scope.R;
+                $http.post("https://localhost:44377/api/teacher/add",v).then(function(resp){
+					
+                    window.location.href = "Login.html";
+				},function(err){
+                    window.location.href = "Registration.html";
+
+				});
+
+
+			};
+		});
+		
+</script>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,22 +91,24 @@
             background-color: darkgreen;
         }
     </style>
+
+
 </head>
-<body>
-    <div class="container">
+<body ng-app="learniverse">
+    <div ng-controller="RegCtrl" class="container">
     <h1>Registration Form</h1>
-    <form action="#" method="post">
+    <form ng-submit="Reg()">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
+        <input type="text" ng-model="R.Name" required><br>
         
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
+        <input type="email" ng-model="R.Email" required><br>
         
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
+        <input type="password" ng-model="R.password" required><br>
         
         <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
+        <select ng-model="R.Gender" required>
             <option value="">Select</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -94,10 +116,10 @@
         </select><br>
         
         <label for="contact">Contact:</label>
-        <input type="text" id="contact" name="contact" pattern="[0-9]{10}" required><br>
+        <input type="text" ng-model="R.Contact" pattern="[0-9]{11}" required><br>
         
         <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required></textarea><br>
+        <input type="text" ng-model="R.Address" required></textarea><br>
         
         <input type="submit" value="Submit">
        
