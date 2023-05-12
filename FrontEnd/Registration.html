@@ -5,18 +5,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url("../Image/Reg.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        
+        select {
+            height: 36px;
+        }
+        
+        
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+            background-color: lightgreen;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
     <h2>Registration Form</h2>
     <form action="#" method="post">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="name" required><br>
         
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" id="email" name="email" required><br>
         
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+        <input type="password" id="password" name="password" required><br>
         
         <label for="gender">Gender:</label>
         <select id="gender" name="gender" required>
@@ -24,16 +91,17 @@
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
-        </select><br><br>
+        </select><br>
         
         <label for="contact">Contact:</label>
-        <input type="tel" id="contact" name="contact" pattern="[0-9]{10}" required><br><br>
+        <input type="text" id="contact" name="contact" pattern="[0-9]{10}" required><br>
         
         <label for="address">Address:</label>
-        <textarea id="address" name="address" required></textarea><br><br>
+        <input type="text" id="address" name="address" required></textarea><br>
         
         <input type="submit" value="Submit">
-        //mohok
+       
     </form>
+    </div>
 </body>
 </html>
