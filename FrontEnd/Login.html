@@ -38,26 +38,68 @@
 		});
 		
 </script>
+<head >
+	<style>
+	input[type="text"], input[type="password"]
+		{
+		   width: 60%;
+		   padding: 10px;
+		   margin-bottom: 20px;
+		   border-radius: 10px;
+		   border: 2px solid #ccc;
+		   font-size: 20px;
+	   }
+	   
+	   input[type="submit"] {
+            display: block;
+            width: 60%;
+            padding: 10px;
+            border-radius: 15px;
+            border: none;
+            background-color: rgb(0, 0, 0);
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(61, 94, 61);
+        }
+	 
+	 
+	 </style>
+</head>
+
 <body ng-app="learniverse">
 
 	
-	<center>
-		<Table border="2">
+	<center style="padding-top: 10%;">
+		<Table>
 			<tr>
 				<td>
 					<img src="../Image/Login.jpg" alt="Profile Picture" width="1080px">
 				</td>	
 				
-				<td>
-					<div ng-controller="loginCtrl">
+				<td width ="50%">
+
+					<center><H1>Welcome Back</H1></center>
+					<center>
+						<div ng-controller="loginCtrl">
 					
-						<form ng-submit="login()">
-							<input type="text" ng-model="l.Username" placeholder="Username"> <br>
-							<input type="password" ng-model="l.Password" placeholder="Password"> <br>
-							<input type="submit">
-						</form>
-							
-				</div>
+							<form ng-submit="login()"  action="#" method="post">
+								
+								<input type="text" ng-model="l.Username" placeholder="Username"> <br>
+								<input type="password"  ng-model="l.Password" placeholder="Password"> <br>
+								<input type="submit" >
+
+							</form>
+								
+					</div>
+					</center>
+					<br>
+					<center>	<h2> New User ?</h2> <a href = "">Sign in</a></center>
+				
+
 				</td>	
 			</tr>		
 		</Table>
