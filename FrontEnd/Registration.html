@@ -7,14 +7,32 @@
 		app.controller('RegCtrl',function($scope,$http){
 			$scope.Reg=function(){
 				var v = $scope.R;
-                $http.post("https://localhost:44377/api/teacher/add",v).then(function(resp){
-					
+                if ($scope.Role == "Teacher")
+                {
+                    $http.post("https://localhost:44377/api/teacher/add",v).then(function(resp){	
                     window.location.href = "Login.html";
 				},function(err){
                     window.location.href = "Registration.html";
-
 				});
+                }
 
+                if ($scope.Role == "Guardian")
+                {
+                    $http.post("https://localhost:44377/api/guardian/add",v).then(function(resp){
+                    window.location.href = "Login.html";
+				},function(err){  
+                    window.location.href = "Registration.html";
+				});
+                }
+                
+                if ($scope.Role == "Student")
+                {
+                    $http.post("https://localhost:44377/api/student/add",v).then(function(resp){
+                    window.location.href = "Login.html";
+				},function(err){
+                    window.location.href = "Registration.html";
+				});
+                }   
 
 			};
 		});
@@ -120,6 +138,14 @@
         
         <label for="address">Address:</label>
         <input type="text" ng-model="R.Address" required></textarea><br>
+
+        <label for="role">Register as a:</label>
+        <select ng-model="Role" required>
+            <option value="">Select</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Student">Student</option>
+            <option value="Guardian">Guardian</option>
+        </select><br>
         
         <input type="submit" value="Submit">
        
