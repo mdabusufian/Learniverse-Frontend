@@ -39,13 +39,31 @@
 		
 </script>
 <body ng-app="learniverse">
-	<div ng-controller="loginCtrl">
-		<form ng-submit="login()">
-			<input type="text" ng-model="l.Username" placeholder="Username"> <br>
-			<input type="password" ng-model="l.Password" placeholder="Password"> <br>
-			<input type="submit">
-		</form>
-	</div>
+
+	
+	<center>
+		<Table border="2">
+			<tr>
+				<td>
+					<img src="../Image/Login.jpg" alt="Profile Picture" width="100%">
+				</td>	
+				
+				<td>
+					<div ng-controller="loginCtrl">
+					
+						<form ng-submit="login()">
+							<input type="text" ng-model="l.Username" placeholder="Username"> <br>
+							<input type="password" ng-model="l.Password" placeholder="Password"> <br>
+							<input type="submit">
+						</form>
+							
+				</div>
+				</td>	
+			</tr>		
+		</Table>
+	</center>
+
+	
 
 
 </body>
