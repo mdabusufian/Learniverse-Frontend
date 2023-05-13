@@ -27,13 +27,37 @@
 		app.controller('loginCtrl',function($scope,$http){
 			$scope.login=function(){
 				var v = $scope.l;
-                $http.post("https://localhost:44377/api/login",v).then(function(resp){
+				if ($scope.Role == "Teacher")
+				{
+					$http.post("https://localhost:44377/api/login",v).then(function(resp){
 					localStorage.setItem("tkey",resp.data.TKey);
                     window.location.href = "HomePage.html";
 				},function(err){
                     window.location.href = "Login.html";
 
 				});
+				}
+				if ($scope.Role == "Student")
+				{
+					$http.post("https://localhost:44377/api/login/studennt",v).then(function(resp){
+					localStorage.setItem("tkey",resp.data.TKey);
+                    window.location.href = "HomePage.html";
+				},function(err){
+                    window.location.href = "Login.html";
+
+				});
+				}
+				if ($scope.Role == "Guardian")
+				{
+					$http.post("https://localhost:44377/api/login/guardian",v).then(function(resp){
+					localStorage.setItem("tkey",resp.data.TKey);
+                    window.location.href = "HomePage.html";
+				},function(err){
+                    window.location.href = "Login.html";
+
+				});
+				}
+                
 
 
 			};
@@ -93,6 +117,13 @@
 								
 								<input type="text" ng-model="l.Username" placeholder="Username"> <br>
 								<input type="password"  ng-model="l.Password" placeholder="Password"> <br>
+								<label for="role">Login as a:</label>
+        						<select ng-model="Role" required>
+            						<option value="">Select</option>
+            						<option value="Teacher">Teacher</option>
+           							<option value="Student">Student</option>
+            						<option value="Guardian">Guardian</option>
+        					</select><br>
 								<input type="submit" >
 
 							</form>
