@@ -64,7 +64,31 @@ input[type="text"]
 
     </style>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+		var app = angular.module("learniverse",[]);
+		//
+		app.controller('searchCtrl',function($scope,$http){
+			$scope.Search=function(){
+				var v = $scope.S;
+        $http.post("https://localhost:44377/api/search/{{+v}}").then(function(resp){
+          debugger;
+          $scope.show = resp.data;
+				},function(err){
+          debugger;
+        
+				});
+        $http.post("https://localhost:44377/api/Search/add",v).then(function(resp){
+          debugger;
+        
+				},function(err){
+          debugger;
+       
+				});
+			};
+		});
+		
+</script>
 
 <body>
 
@@ -78,11 +102,13 @@ input[type="text"]
 
 
  <!--Search Start-->
- <center> <p style="font-size: 60px;"><b>Search for Course</b></p></center>
+ <div ng-controller="searchCtrl">
 
-<center> <form>
+  <center> <p style="font-size: 60px;"><b>Search for Course</b></p></center>
 
-    <input type="text">   <button style="height: 45px; width: 90px;">Search</button>
+<center> <form ng-submit="Search()">
+
+    <input type="text" ng-model="S">   <button style="height: 45px; width: 90px;">Search</button>
 
  </form>
 </center>
@@ -91,14 +117,29 @@ input[type="text"]
 
  <center>
     <table>
-        <tr>
+      <tr>
+        <td>Name</td>
+        <td>Category</td>
+        <td>Price</td>
+        
+      </tr>
+        <tr ng-repeat="p in show">
             <td>
-    
+              {{p.Name}}
+            </td>
+            <td>
+              {{p.Category}}
+            </td>
+            <td>
+              {{p.Price}}
             </td>
         </tr>
      </table>
     
  </center>
+
+ </div>
+ 
 
 <!--Search Finish-->
 
