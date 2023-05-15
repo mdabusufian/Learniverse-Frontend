@@ -7,7 +7,7 @@
     app.controller('showCtrl', function ($scope, $http) {
         $scope.loadData = function () {
             var v = $scope.l;
-            $http.get("https://localhost:44377/api/student").then(function (resp) {
+            $http.get("https://localhost:44377/api/guardian").then(function (resp) {
                 $scope.data = resp.data;
             }, function (err) {
                 debugger;
@@ -23,21 +23,60 @@
 
 <body  ng-app="learniverse">
 
-    
-    <div ng-controller="showCtrl" ng-init="loadData()">
-        <table border=1 style="border-collapse:collapse">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
+    <div class="topnav">
+        <a  href="../FrontEnd/StudentHome.html" style="font-size: 18px;">Learnivers</a>
+        <a href="../FrontEnd/StudentHome.html">Home Page</a>
+        <a href="../FrontEnd/Discover.html">Discover</a>
+        <a href="../FrontEnd/AboutUs.html">About Us</a>
+        <a class="active" href="../FrontEnd/GProfile.html">Profile</a>
+        <button class="logout-button">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
+      </div>
+      <center> <p style="font-size: 60px;"><b>Profile</b></p></center>
+      <center>
+        <div ng-controller="showCtrl" ng-init="loadData()">
+            <table >
+           
+        
+                <tr ng-repeat="d in data">
+                <td>
+                   <P style="font-size: 30px;"><b>Name :</b></P>  
+                </td>
+                <td><P style="font-size: 20px;"></P>{{d.Name}}</P></td>
             </tr>
+    
             <tr ng-repeat="d in data">
-                <td>{{d.Id}}</td>
-                <td>{{d.Name}}</td>
-                <td>{{d.Email}}</td>
+                <td>
+                   <P style="font-size: 30px;"><b>Email :</b></P>  
+                </td>
+    
+                    <td><P style="font-size: 20px;"></P>{{d.Email}}</P></td>
+                
+            </tr>
+        
+            <tr>
+                <td>
+                    <P style="font-size: 30px;"><b>Status :</b></P>  
+                </td>
+                <td>
+                    <P style="font-size: 20px;">Guardian</P> 
+                </td>
+            </tr>
+        
+            <tr>
+                <td>
+                    <P style="font-size: 30px;"><b>Age :</b></P>  
+                </td>
+                <td>
+                    <P style="font-size: 20px;">53</P> 
+                </td>
             </tr>
         </table>
     </div>
+    </center>
+   
 
 
 

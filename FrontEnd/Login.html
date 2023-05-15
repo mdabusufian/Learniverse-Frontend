@@ -51,7 +51,7 @@
 				{
 					$http.post("https://localhost:44377/api/login/guardian",v).then(function(resp){
 					localStorage.setItem("tkey",resp.data.TKey);
-                    window.location.href = "HomePage.html";
+                    window.location.href = "GProfile.html";
 				},function(err){
                     window.location.href = "Login.html";
 
