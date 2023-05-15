@@ -39,7 +39,7 @@
 				}
 				if ($scope.Role == "Student")
 				{
-					$http.post("https://localhost:44377/api/login/studennt",v).then(function(resp){
+					$http.post("https://localhost:44377/api/login/student",v).then(function(resp){
 					localStorage.setItem("tkey",resp.data.TKey);
                     window.location.href = "HomePage.html";
 				},function(err){
@@ -130,12 +130,9 @@
             						<option value="Teacher">Teacher</option>
            							<option value="Student">Student</option>
             						<option value="Guardian">Guardian</option>
-<<<<<<< HEAD
         					</select><br> <br>
-=======
         					</select><br>
 							<br><br>
->>>>>>> 822d41f8d6d92036ac259212671a7cf7cda6f418
 								<input type="submit" >
 
 							</form>
