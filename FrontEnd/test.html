@@ -4,27 +4,31 @@
 <script>
     var app = angular.module("learniverse", []);
     app.controller('showCtrl', function ($scope, $http) {
-        //$scope.data = '';
         $scope.loadData = function () {
             var v = $scope.l;
             $http.get("https://localhost:44377/api/teacher").then(function (resp) {
                 $scope.data = resp.data;
-                console.log($scope.data);
             }, function (err) {
-                console.log('Error occurred while fetching data');
+                debugger;
             });
-
 
         };
     });
 </script>
 <body ng-app="learniverse">
     <div ng-controller="showCtrl" ng-init="loadData()">
-        <p>$sdata.Id</p>
-        <p>{{ data.Name }}</p>
-    </div>
-    <div>
-        <p>testing</p>
+        <table border=1 style="border-collapse:collapse">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <tr ng-repeat="d in data">
+                <td>{{d.Id}}</td>
+                <td>{{d.Name}}</td>
+                <td>{{d.Email}}</td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
