@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+    var app = angular.module("learniverse", []);
+    app.controller('showCtrl', function ($scope, $http) {
+        $scope.loadData = function () {
+            var v = $scope.l;
+            $http.get("https://localhost:44377/api/course").then(function (resp) {
+                $scope.data = resp.data;
+            }, function (err) {
+                debugger;
+            });
+
+        };
+    });
+</script>
     <link rel="stylesheet" type="text/css" href="../css/Project.css">
 </head>
 
 
 
-<body>
+<body ng-app="learniverse">
 
     <div class="topnav">
         <a  href="#home" style="font-size: 18px;">Learnivers</a>
@@ -21,32 +36,27 @@
 
  <center> <p style="font-size: 60px;"><b>Student Payment</b></p></center>
 
-
-<table>
-    <tr>
-        <td style="padding-left: 80px;font-size: 30px;">Course Name</td>
-        <td style="padding-left: 80px;font-size: 30px;">Teacher Name</td>
-        <td style="padding-left: 80px;font-size: 30px;">Enroll</td>
-        <td style="padding-left: 80px;font-size: 30px;">Validity</td>
-                            
-    </tr>
-
-    <tr>
-        <td style="padding-left: 80px;">Dot Net</td>
-        <td style="padding-left: 80px;">MD. Sufian</td>
-        <td style="padding-left: 80px;">20/40</td>
-        <td style="padding-left: 80px;">Open</td>
-          
-    </tr>
-
-    <tr>
-        <td style="padding-left: 80px;">Graphic design</td>
-        <td style="padding-left: 80px;">Mushfiq Anjum</td>
-        <td style="padding-left: 80px;">5/20</td>
-        <td style="padding-left: 80px;">open</td>
-         
-    </tr>
-</table>
+ <div ng-controller="showCtrl" ng-init="loadData()">
+    <center>
+        <table border=1 style="border-collapse:collapse">
+            <tr>
+                <td style="padding-left: 80px;font-size: 30px;">Course Name</td>
+                <td style="padding-left: 80px;font-size: 30px;">Category</td>
+                <td style="padding-left: 80px;font-size: 30px;">Price</td>
+              
+                                    
+            </tr>
+        
+            <tr ng-repeat="d in data">
+                <td style="padding-left: 80px;">{{d.Name}}</td>
+                <td style="padding-left: 80px;">{{d.Category}}</td>
+                <td style="padding-left: 80px;">{{d.Price}}</td>
+                
+                  
+            </tr>
+        </table>
+    </center>
+  
 
 
 <!--Profile Finish-->
