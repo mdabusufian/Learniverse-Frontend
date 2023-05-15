@@ -2,11 +2,26 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="../css/Project.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+    var app = angular.module("learniverse", []);
+    app.controller('showCtrl', function ($scope, $http) {
+        $scope.loadData = function () {
+            var v = $scope.l;
+            $http.get("https://localhost:44377/api/teacher").then(function (resp) {
+                $scope.data = resp.data;
+            }, function (err) {
+                debugger;
+            });
+
+        };
+    });
+</script>
 </head>
 
 
 
-<body>
+<body ng-app="learniverse">
 
     <div class="topnav">
         <a  href="#home" style="font-size: 18px;">Learnivers</a>
@@ -21,32 +36,23 @@
 
  <center> <p style="font-size: 60px;"><b>Student Payment</b></p></center>
 
-
-<table>
+ <div ng-controller="showCtrl" ng-init="loadData()">
+    <table border=1 style="border-collapse:collapse">
     <tr>
         <td style="padding-left: 80px;font-size: 30px;">Teacher Name</td>
         <td style="padding-left: 80px;font-size: 30px;">Email</td>
-        <td style="padding-left: 80px;font-size: 30px;">Contact</td>
-        <td style="padding-left: 80px;font-size: 30px;">Salary</td>                       
+        <td style="padding-left: 80px;font-size: 30px;">Contact</td>                     
     </tr>
 
-    <tr>
-        <td style="padding-left: 80px;">Mushfiq Anjum Rafi</td>
-        <td style="padding-left: 80px;">Mushi164@gmail.com</td>
-        <td style="padding-left: 80px;">018433284</td>
-        <td style="padding-left: 80px;">Paid</td>
-                       
-    </tr>
+    <tr ng-repeat="d in data">
+        <td style="padding-left: 80px;">{{d.Name}}</td>
+        <td style="padding-left: 80px;">{{d.Email}}</td>
+        <td style="padding-left: 80px;">{{d.Contact}}</td>
+       
 
-    <tr>
-        <td style="padding-left: 80px;">Mushfiq Anjum</td>
-        <td style="padding-left: 80px;">rafi@gmail.com</td>
-        <td style="padding-left: 80px;">0183165121</td>
-        <td style="padding-left: 80px;">Not Paid</td>
-                       
     </tr>
 </table>
-
+</div>
 
 <!--Profile Finish-->
 
