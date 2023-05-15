@@ -31,6 +31,7 @@
 				{
 					$http.post("https://localhost:44377/api/login",v).then(function(resp){
 					localStorage.setItem("tkey",resp.data.TKey);
+					[session]
                     window.location.href = "HomePage.html";
 				},function(err){
                     window.location.href = "Login.html";
