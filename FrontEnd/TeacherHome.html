@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="../css/Project.css">
+    <link rel="stylesheet" type="text/css" href="../css/circle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-WmnOwLV93RuCP5zoCM3YXat2Y7/n16ffmjv4QecUijeqy6BbVTlSQF2c06tsqsdCscGk0QRLSqT/DzkPjcjsVw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class="topnav">
+        <a  href="../FrontEnd/HomeAdmin.html" style="font-size: 18px;">Learnivers</a>
+        <a class="active" href="../FrontEnd/HomeAdmin.html">Home Page</a>
+        <a href="../FrontEnd/Discover.html">Discover</a>
+        <a href="../FrontEnd/AboutUs.html">About Us</a>
+        <a href="../FrontEnd/sProfile.html">Profile</a>
+        <button class="logout-button">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
+      </div>
+
+      <div class="slideshow">
+        <h2 class="w3-center">View Courses</h2>
+        
+        <div class="w3-content w3-display-container">
+          <img class="mySlides" src="../Image/course1.png " >
+          <img class="mySlides" src="../Image/course2.jpg" >
+          <img class="mySlides" src="../Image/course3.webp" >
+          <img class="mySlides" src="../Image/course4.jpg" >
+        
+          <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+          <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+        </div>
+
+<table>
+
+    <tr>
+        <td width="775px" height="200px" style="background-color: rgb(172, 236, 54); border-radius: 15px;">
+            <div style="text-align:center">
+                <h1>Your Courses </h1>
+                <br>
+            <span class="dot"><img class="dot" src="../Image/course1.png" alt="Profile Picture" ><b>Grapics design</b></span>
+            <span class="dot"><img src="../Image/course1.png" alt="Profile Picture" class="dot"><b>Math 2</b></span>
+            <span class="dot"><img src="../Image/course1.png" alt="Profile Picture" class="dot"><b>Math 3</b></span>
+            </div>
+        </td>
+        <td width="710px" height="500px" style="background-color: bisque; border-radius: 15px;">
+            <div style="text-align:center">
+                <h1>Progress </h1>
+                <br>
+            <span class="dot"><img class="dot" src="../Image/20percent.png " alt="Profile Picture" ><b>Grapics design</b></span>
+            <span class="dot"><img src="../Image/30percent.jpg" alt="Profile Picture" class="dot"><b>Math 2</b></span>
+            <span class="dot"><img src="../Image/80%.jpg" alt="Profile Picture" class="dot"><b>Math 3</b></span>
+            </div>
+        </td>
+    </tr>
+
+</table>
+
+
+<!--Footer-->
+<br>
+<br>
+
+
+
+
+<footer>
+    <table>
+        <tr>
+           
+    
+            <td style="padding-left: 150px; font-size: 25px;">
+                <ul>
+                    <ul>Categories</ul>
+                    <br>
+                    <ul><a href="../FrontEnd/TopPicks.html">Top Picks</a></ul>
+                    <br>
+                    <ul><a href="../FrontEnd/SProfile.html">Account</a></ul>
+                    <br>
+                    <ul>Create Group</ul>
+                    <br>
+                    <ul>Discover</ul>
+                    <br>
+                    <ul><a href="../FrontEnd/StudentHome.html">Home</a></ul>
+                </ul>
+            </td>
+
+            <td style="padding-left: 150px;  font-size: 25px;">
+                <ul>
+                    <ul>Terms</ul>
+                    <br>
+                    <ul>Privacy</ul>
+                    <br>
+                    <ul>Security</ul>
+                    <br>
+                    <ul>Partner Program</ul>
+                </ul>
+            </td>
+
+
+            <td style="padding-left: 150px;  font-size: 25px;">
+                <ul>
+                    <ul>Give a gift</ul>
+                    <br>
+                    <ul>Blog</ul>
+                </ul>
+            </td>
+
+
+            <td style="padding-left: 150px;  font-size: 25px;">
+                
+             <div class="box"><p style="padding-top:10px ;"><a href = "../FrontEnd/Registration.html">Join Us</ahref></p></div>
+
+
+            </td>
+
+        </tr>
+    
+    
+    
+    </table>
+  </footer>
+  <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+    
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      x[slideIndex-1].style.display = "block";  
+    }
+    </script>
+</body>
+</html>
