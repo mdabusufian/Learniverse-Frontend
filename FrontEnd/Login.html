@@ -51,7 +51,7 @@
 				{
 					$http.post("https://localhost:44377/api/login/guardian",v).then(function(resp){
 					localStorage.setItem("tkey",resp.data.TKey);
-                    window.location.href = "GProfile.html";
+                    window.location.href = "HomePage.html";
 				},function(err){
                     window.location.href = "Login.html";
 
@@ -94,17 +94,8 @@
 	 
 	 
 	 </style>
-
-<link rel="stylesheet" type="text/css" href="../css/Project.css">
-
-</head>
-
-  
-
-	  
-
-
-	
+	 </head>	
+	 <body ng-app="learniverse">
 	<center style="padding-top: 0%;">
 		<Table>
 			<tr>
@@ -130,14 +121,8 @@
             						<option value="Teacher">Teacher</option>
            							<option value="Student">Student</option>
             						<option value="Guardian">Guardian</option>
-<<<<<<< HEAD
         					</select><br> <br>
-=======
-        					</select><br>
-							<br><br>
->>>>>>> 822d41f8d6d92036ac259212671a7cf7cda6f418
 								<input type="submit" >
-
 							</form>
 								
 					</div>
