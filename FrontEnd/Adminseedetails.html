@@ -1,10 +1,28 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+		var app = angular.module("learniverse", []);
+		//
+		app.controller('countCtrl',function($scope,$http){
+			$scope.load=function(){
+        var link = "api/teacher/count";
+        debugger;
+        $http.get(link).then(function(resp){
+          $scope.search = resp.data;
+          debugger;
+				},function(err){
+          debugger;
+        
+        });
+        
+    };
+});
+</script>
+<head>
     <link rel="stylesheet" type="text/css" href="../css/Project.css">
 </head>
-
-
 
 <body>
 
@@ -21,38 +39,44 @@
 
  <center> <p style="font-size: 60px;"><b>Student Payment</b></p></center>
 
-
+<div ng-controller="countCtrl">
+    <button ng-click="load()">Load<button></button>
 <table>
+    
    <tr>
     <td>
-        Student Info
+       <P>Total Student</P> 
+       <p></p>
+       <p> <a href="../FrontEnd/StudentInfo.html">Details </a> </p>
+
     </td>
     <td>
-       Course info
+        <P>Total Course</P> 
+        <p> 5k+ </p>
+        <p> <a href="../FrontEnd/Courseinfo.html">Details </a> </p>
     </td>
    </tr>
 
    <tr>
     <td>
-         Teacher info
+        <P>Total Teacher</P> 
+        <p></p>
+        <p> <a href="../FrontEnd/Teacherinfo.html">Details </a> </p>
     </td>
     <td>
-       Guardian info
+        <P>Total Guardian</P> 
+        <p> 5k+ </p>
+        <p> <a href="../FrontEnd/GProfile.html">Details </a> </p>
     </td>
    </tr>
 </table>
-
+</div>
 
 <!--Profile Finish-->
-
-
 
 <!--Footer-->
 <br>
 <br>
-
-
-
 
 <footer>
     <table>
@@ -115,17 +139,6 @@
     </table>
   </footer>
 
-
-
-
-
-
-
-
-
-
 <body>
-
-
 </body> 
 </html>

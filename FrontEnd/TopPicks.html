@@ -8,7 +8,11 @@
 			$scope.Search=function(){
 				var v = $scope.S.SearchName;
         var s = $scope.S;
-        $http.get("https://localhost:44377/api/teacher").then(function(resp){
+        //var link = "https://localhost:44377/api/course/"+v;
+        //var link = "https://localhost:44377/api/teacher/";
+        var link = "api/teacher/count";
+        debugger;
+        $http.get(link).then(function(resp){
           $scope.search = resp.data;
           // https://localhost:44377/api/course/${v}
           debugger;
@@ -118,15 +122,16 @@ input[type="text"]
         <td>Price</td>
         
       </tr>
-        <tr ng-repeat="p in search">
+        <tr>
             <td>
-              {{p.Name}}
+              {{search.Name}}
+              
             </td>
             <td>
-              {{p.Category}}
+              {{search.Category}}
             </td>
             <td>
-              {{p.Price}}
+              {{search.Price}}
             </td>
         </tr>
      </table>
