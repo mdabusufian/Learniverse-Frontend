@@ -2,28 +2,11 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="../css/Project.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
-
 </head>
-<script>
-    var app = angular.module("learniverse", []);
-    app.controller('showCtrl', function ($scope, $http) {
-        $scope.loadData = function () {
-            var v = $scope.l;
-            $http.get("https://localhost:44377/api/student").then(function (resp) {
-                $scope.data = resp.data;
-            }, function (err) {
-                debugger;
-            });
-
-        };
-    });
-</script>
 
 
 
-<body ng-app="learniverse">
+<body>
 
     <div class="topnav">
         <a  href="#home" style="font-size: 18px;">Learnivers</a>
@@ -36,33 +19,34 @@
 
  <!--Profile Start-->
 
- <center> <p style="font-size: 60px;"><b>Student Information</b></p></center>
-
- <div ng-controller="showCtrl" ng-init="loadData()">
+ <center> <p style="font-size: 60px;"><b>Student Payment</b></p></center>
 
 
-
-
-    <table border=1 style="border-collapse:collapse">
-
-    <tr >
-        <td style="padding-left: 80px;font-size: 30px;">Student Name</td>
-        <td style="padding-left: 80px;font-size: 30px;">Email</td>
-        <td style="padding-left: 80px;font-size: 30px;">Gender</td>
-        <td style="padding-left: 80px;font-size: 30px;">Contact</td>
-        <td style="padding-left: 80px;font-size: 30px;">Address</td>                          
+<table>
+    <tr>
+        <td style="padding-left: 80px;font-size: 30px;">Course Name</td>
+        <td style="padding-left: 80px;font-size: 30px;">Teacher Name</td>
+        <td style="padding-left: 80px;font-size: 30px;">Enroll</td>
+        <td style="padding-left: 80px;font-size: 30px;">Validity</td>
+                            
     </tr>
 
-    <tr ng-repeat="d in data">
-        <td style="padding-left: 80px;">{{d.Name}}</td>
-        <td style="padding-left: 80px;">{{d.Email}}</td>
-        <td style="padding-left: 80px;">{{d.Gender}}</td>
-        <td style="padding-left: 80px;">{{d.Contact}}</td>
-        <td style="padding-left: 80px;">{{d.Address}}</td>                          
+    <tr>
+        <td style="padding-left: 80px;">Dot Net</td>
+        <td style="padding-left: 80px;">MD. Sufian</td>
+        <td style="padding-left: 80px;">20/40</td>
+        <td style="padding-left: 80px;">Open</td>
+          
     </tr>
 
+    <tr>
+        <td style="padding-left: 80px;">Graphic design</td>
+        <td style="padding-left: 80px;">Mushfiq Anjum</td>
+        <td style="padding-left: 80px;">5/20</td>
+        <td style="padding-left: 80px;">open</td>
+         
+    </tr>
 </table>
-</div>
 
 
 <!--Profile Finish-->

@@ -39,7 +39,7 @@
 				}
 				if ($scope.Role == "Student")
 				{
-					$http.post("https://localhost:44377/api/login/studennt",v).then(function(resp){
+					$http.post("https://localhost:44377/api/login/student",v).then(function(resp){
 					localStorage.setItem("tkey",resp.data.TKey);
                     window.location.href = "HomePage.html";
 				},function(err){
