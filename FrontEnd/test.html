@@ -19,7 +19,7 @@
 <body ng-app="learniverse">
     <div ng-controller="showCtrl" ng-init="loadData()">
         <table border=1 style="border-collapse:collapse">
-            <tr>
+            <tr ng-repeat="d in data"> 
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>

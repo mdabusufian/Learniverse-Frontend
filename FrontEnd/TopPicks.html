@@ -8,9 +8,7 @@
 			$scope.Search=function(){
 				var v = $scope.S.SearchName;
         var s = $scope.S;
-        //var link = "https://localhost:44377/api/course/"+v;
-        //var link = "https://localhost:44377/api/teacher/";
-        var link = "api/teacher/count";
+        var link = "https://localhost:44377/api/course/"+v;
         debugger;
         $http.get(link).then(function(resp){
           $scope.search = resp.data;
@@ -30,6 +28,16 @@
 				});
         
 			};
+      $scope.loadData = function () {
+            var v = $scope.l;
+            $http.get("https://localhost:44377/api/search").then(function (resp) {
+                $scope.data = resp.data;
+                debugger;
+            }, function (err) {
+                debugger;
+            });
+
+        };
 		});
 		
 </script>
@@ -101,11 +109,26 @@ input[type="text"]
 
 
  <!--Search Start-->
- <div ng-controller="searchCtrl">
+ <div ng-controller="searchCtrl" ng-init="loadData()">
 
   <center> <p style="font-size: 60px;"><b>Search for Course</b></p></center>
 
 <center> <form ng-submit="Search()">
+  
+    <table border=1 style="border-collapse:collapse">
+        <tr>
+          <td colspan="2">Top Searches</td>
+        </tr>
+        <tr>
+            <th>Topic</th>
+            <th>Search Count</th>
+        </tr>
+        <tr ng-repeat="d in data">
+            <td>{{d.SearchName}}</td>
+            <td>{{d.Count}}</td>
+        </tr>
+    </table>
+
 
     <input type="text" ng-model="S.SearchName">   <button style="height: 45px; width: 90px;">Search</button>
 
@@ -115,7 +138,7 @@ input[type="text"]
 
 
  <center>
-    <table>
+    <table border="1">
       <tr>
         <td>Name</td>
         <td>Category</td>
