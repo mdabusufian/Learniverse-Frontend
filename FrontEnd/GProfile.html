@@ -7,7 +7,8 @@
     app.controller('showCtrl', function ($scope, $http) {
         $scope.loadData = function () {
             var v = $scope.l;
-            $http.get("https://localhost:44377/api/guardian").then(function (resp) {
+            var link = "https://localhost:44377/api/guardian/";
+            $http.get(link).then(function (resp) {
                 $scope.data = resp.data;
             }, function (err) {
                 debugger;
@@ -91,7 +92,7 @@
             </tr>
             <tr>
                 <td>
-                    <a href="../FrontEnd/Editprofile.html?id={{d.Id}}?">Editprofile</a>
+                    <a href="../FrontEnd/Editprofile.html?id={{d.Id}}?">Edit profile</a>
                 </td>
             </tr>
         </table>
