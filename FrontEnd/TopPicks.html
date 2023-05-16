@@ -13,17 +13,17 @@
         $http.get(link).then(function(resp){
           $scope.search = resp.data;
           // https://localhost:44377/api/course/${v}
-          debugger;
+         // debugger;
 				},function(err){
-          debugger;
+          //debugger;
         
 				});
         $http.post("https://localhost:44377/api/Search/add",s).then(function(resp1){
           $scope.show1 = resp1.data;
-          debugger;
+          //debugger;
         
 				},function(err){
-          debugger;
+          //debugger;
        
 				});
         
@@ -32,9 +32,9 @@
             var v = $scope.l;
             $http.get("https://localhost:44377/api/search").then(function (resp) {
                 $scope.data = resp.data;
-                debugger;
+               // debugger;
             }, function (err) {
-                debugger;
+               // debugger;
             });
 
         };
@@ -42,59 +42,16 @@
 		
 </script>
 
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .topnav {
-    overflow: hidden;
-    background-color: #333;
-    
-  }
-  
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 16px 18px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .topnav a:hover {
-    background-color: bisque;
-    color: black;
-  }
-  
-  .topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="../css/Project.css">
+  <link rel="stylesheet" type="text/css" href="../css/circle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-WmnOwLV93RuCP5zoCM3YXat2Y7/n16ffmjv4QecUijeqy6BbVTlSQF2c06tsqsdCscGk0QRLSqT/DzkPjcjsVw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  footer {
-text-align: center;
-padding: 3px;
-background-color: bisque;
-color: black;
-}
-.box {
-width: 300px;
-height: 100px;
-border: 1px solid;
-background-color: rgb(255, 217, 160);
-}
-input[type="text"]
-  {
-     width: 60%;
-     padding: 10px;
-     margin-bottom: 20px;
-     border-radius: 10px;
-     border: 2px solid #ccc;
-     font-size: 20px;
-      }   
-</style>
+</head>
 
 
 <body ng-app="learniverse">
@@ -105,6 +62,10 @@ input[type="text"]
         <a href="../FrontEnd/AboutUs.html">About Us</a>
         <a href="../FrontEnd/Login.html">Login</a>
         <a href="../FrontEnd/Registration.html">Sign Up</a>
+        <button class="logout-button" onclick="window.location.href='Logout.html';">
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </button>
       </div>
 
 
