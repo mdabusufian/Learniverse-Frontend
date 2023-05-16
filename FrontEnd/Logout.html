@@ -8,11 +8,11 @@
         var interceptor = {
             request: function (config) {
                 config.headers.Authorization = localStorage.getItem("tkey");
-                //debugger;
+               // debugger;
                 return config;
             },
             response: function (response) {
-                //debugger;
+               // debugger;
 
                 return response;
             }
@@ -25,12 +25,13 @@
     });
     
     app.controller('logoutCtrl', function ($scope, $http) {
-        $scope.logout = function () {
+        $scope.loadData = function () {
             
-            $http.get("https://localhost:44377/api/logout").then(function (resp) {
-                //debugger;
-            }, function (err) {
+            $http.get("https://localhost:44377/api/logout/teacher").then(function (resp) {
                // debugger;
+               window.location.href = "Login.html";
+            }, function (err) {
+                debugger;
             });
 
 
@@ -42,9 +43,9 @@
 <body ng-app="learniverse">
     
 
-    <div ng-controller="logoutCtrl">
+    <div ng-controller="logoutCtrl" ng-init="loadData()">
         
-        <button ng-click="logout()">Logout
+        
            
     </div>
 

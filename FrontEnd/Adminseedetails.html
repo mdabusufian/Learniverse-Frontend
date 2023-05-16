@@ -4,32 +4,46 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
 		var app = angular.module("learniverse", []);
-		//
-		app.controller('countCtrl',function($scope,$http){
-			$scope.load=function(){
-        var link = "api/teacher/count";
-        debugger;
-        $http.get(link).then(function(resp){
-          $scope.search = resp.data;
-          debugger;
-				},function(err){
-          debugger;
-        
-        });
-        
-    };
-});
+    app.controller('countCtrl', function ($scope, $http) {
+        $scope.loadData = function () {
+            var v = $scope.l;
+            $http.get("https://localhost:44377/api/teacher/count").then(function (resp) {
+                $scope.T = resp.data;
+                debugger;
+            }, function (err) {
+                debugger;
+            });
+            $http.get("https://localhost:44377/api/student/count").then(function (resp) {
+                $scope.S = resp.data;
+                debugger;
+            }, function (err) {
+                debugger;
+            });
+            $http.get("https://localhost:44377/api/guardian/count").then(function (resp) {
+                $scope.G = resp.data;
+                debugger;
+            }, function (err) {
+                debugger;
+            });
+            $http.get("https://localhost:44377/api/course/count").then(function (resp) {
+                $scope.C = resp.data;
+                debugger;
+            }, function (err) {
+                debugger;
+            });
+
+        };
+    });
 </script>
 <head>
     <link rel="stylesheet" type="text/css" href="../css/Project.css">
 </head>
-
-<body>
+<body ng-app="learniverse">
 
     <div class="topnav">
-        <a  href="#home" style="font-size: 18px;">Learnivers</a>
+        <a class="active"  href="#home" style="font-size: 18px;">Learnivers</a>
         <a  href="../FrontEnd/Landingpage.html">Home Page</a>
-        <a class="active" href="../FrontEnd/AboutUs.html">About Us</a>
+        <a  href="../FrontEnd/AboutUs.html">About Us</a>
         <a href="../FrontEnd/Login.html">Login</a>
         <a href="../FrontEnd/Registration.html">Sign Up</a>
       </div>
@@ -37,22 +51,22 @@
 
  <!--Profile Start-->
 
- <center> <p style="font-size: 60px;"><b>Student Payment</b></p></center>
+ <center> <p style="font-size: 60px;"><b>Informations</b></p></center>
 
-<div ng-controller="countCtrl">
-    <button ng-click="load()">Load<button></button>
+<div ng-controller="countCtrl" ng-init="loadData()">
+
 <table>
     
    <tr>
     <td>
        <P>Total Student</P> 
-       <p></p>
+       <p>{{S}}</p>
        <p> <a href="../FrontEnd/StudentInfo.html">Details </a> </p>
 
     </td>
     <td>
         <P>Total Course</P> 
-        <p> 5k+ </p>
+        <p>{{C}}</p>
         <p> <a href="../FrontEnd/Courseinfo.html">Details </a> </p>
     </td>
    </tr>
@@ -60,13 +74,13 @@
    <tr>
     <td>
         <P>Total Teacher</P> 
-        <p></p>
+        <p>{{T}}</p>
         <p> <a href="../FrontEnd/Teacherinfo.html">Details </a> </p>
     </td>
     <td>
         <P>Total Guardian</P> 
-        <p> 5k+ </p>
-        <p> <a href="../FrontEnd/GProfile.html">Details </a> </p>
+        <p>{{G}}</p>
+        <p> <a href="../FrontEnd/GuardianInfo.html">Details </a> </p>
     </td>
    </tr>
 </table>
@@ -139,6 +153,5 @@
     </table>
   </footer>
 
-<body>
 </body> 
 </html>

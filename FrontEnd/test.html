@@ -6,8 +6,9 @@
     app.controller('showCtrl', function ($scope, $http) {
         $scope.loadData = function () {
             var v = $scope.l;
-            $http.get("https://localhost:44377/api/teacher").then(function (resp) {
+            $http.get("https://localhost:44377/api/teacher/count").then(function (resp) {
                 $scope.data = resp.data;
+                debugger;
             }, function (err) {
                 debugger;
             });
@@ -18,13 +19,13 @@
 <body ng-app="learniverse">
     <div ng-controller="showCtrl" ng-init="loadData()">
         <table border=1 style="border-collapse:collapse">
-            <tr>
+            <tr ng-repeat="d in data"> 
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
             </tr>
-            <tr ng-repeat="d in data">
-                <td>{{d.Id}}</td>
+            <tr>
+                <td>{{data}}</td>
                 <td>{{d.Name}}</td>
                 <td>{{d.Email}}</td>
             </tr>
@@ -32,3 +33,5 @@
     </div>
 </body>
 </html>
+
+
