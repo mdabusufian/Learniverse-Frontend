@@ -3,6 +3,9 @@
   <head>
     <link rel="stylesheet" type="text/css" href="../css/Project.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+</head>
 <script>
     var app = angular.module("learniverse", []);
     app.controller('showCtrl', function ($scope, $http) {
@@ -17,7 +20,6 @@
         };
     });
 </script>
-</head>
 
 
 
@@ -34,37 +36,36 @@
 
  <!--Profile Start-->
 
- <center> <p style="font-size: 60px;"><b>Student Payment</b></p></center>
+ <center> <p style="font-size: 60px;"><b>Student Information</b></p></center>
 
  <div ng-controller="showCtrl" ng-init="loadData()">
+
+
+
+
     <table border=1 style="border-collapse:collapse">
-    <tr>
-        <td style="padding-left: 80px;font-size: 30px;">Teacher Name</td>
+
+    <tr >
+        <td style="padding-left: 80px;font-size: 30px;">Student Name</td>
         <td style="padding-left: 80px;font-size: 30px;">Email</td>
-        <td style="padding-left: 80px;font-size: 30px;">Contact</td>                     
+        <td style="padding-left: 80px;font-size: 30px;">Gender</td>
+        <td style="padding-left: 80px;font-size: 30px;">Contact</td>
+        <td style="padding-left: 80px;font-size: 30px;">Address</td>                          
     </tr>
 
     <tr ng-repeat="d in data">
         <td style="padding-left: 80px;">{{d.Name}}</td>
         <td style="padding-left: 80px;">{{d.Email}}</td>
+        <td style="padding-left: 80px;">{{d.Gender}}</td>
         <td style="padding-left: 80px;">{{d.Contact}}</td>
-       
-
+        <td style="padding-left: 80px;">{{d.Address}}</td>                          
     </tr>
+
 </table>
 </div>
 
-<!--Profile Finish-->
-
-
-
-<!--Footer-->
 <br>
 <br>
-
-
-
-
 <footer>
     <table>
         <tr>
@@ -89,7 +90,6 @@
                     <ul>Home</ul>
                 </ul>
             </td>
-
             <td style="padding-left: 150px;  font-size: 25px;">
                 <ul>
                     <ul>Terms</ul>
@@ -101,8 +101,6 @@
                     <ul>Partner Program</ul>
                 </ul>
             </td>
-
-
             <td style="padding-left: 150px;  font-size: 25px;">
                 <ul>
                     <ul>Give a gift</ul>
@@ -110,33 +108,12 @@
                     <ul>Blog</ul>
                 </ul>
             </td>
-
-
-            <td style="padding-left: 150px;  font-size: 25px;">
-                
+            <td style="padding-left: 150px;  font-size: 25px;">    
              <div class="box"><p style="padding-top:10px ;"><a href = "../FrontEnd/Registration.html">Join Us</ahref></p></div>
-
-
             </td>
-
         </tr>
-    
-    
-    
     </table>
   </footer>
-
-
-
-
-
-
-
-
-
-
 <body>
-
-
 </body> 
-</html> 
+</html>

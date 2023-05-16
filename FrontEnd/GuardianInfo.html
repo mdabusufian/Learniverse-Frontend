@@ -11,7 +11,7 @@
     app.controller('showCtrl', function ($scope, $http) {
         $scope.loadData = function () {
             var v = $scope.l;
-            $http.get("https://localhost:44377/api/student").then(function (resp) {
+            $http.get("https://localhost:44377/api/guardian").then(function (resp) {
                 $scope.data = resp.data;
             }, function (err) {
                 debugger;
