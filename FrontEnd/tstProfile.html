@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+    var app = angular.module("learniverse", []);
+    app.controller('showCtrl', function ($scope, $http) {
+        $scope.loadData = function () {
+            var v = $scope.l;
+            $http.get("https://localhost:44377/api/guardian").then(function (resp) {
+                $scope.data = resp.data;
+            }, function (err) {
+                debugger;
+            });
+
+        };
+    });
+</script>
+    <link rel="stylesheet" type="text/css" href="../css/Project.css">
+</head>
+
+
+
+<body  ng-app="learniverse">
+
+    <div class="topnav">
+        <a  href="../FrontEnd/StudentHome.html" style="font-size: 18px;">Learnivers</a>
+        <a href="../FrontEnd/StudentHome.html">Home Page</a>
+        <a href="../FrontEnd/Discover.html">Discover</a>
+        <a href="../FrontEnd/AboutUs.html">About Us</a>
+        <a class="active" href="../FrontEnd/GProfile.html">Profile</a>
+        <button class="logout-button">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
+      </div>
+      <center> <p style="font-size: 60px;"><b>Profile</b></p></center>
+      <center>
+        <div ng-controller="showCtrl" ng-init="loadData()">
+            <table ng-repeat="d in data" >
+           
+        
+                <tr >
+                <td>
+                   <P style="font-size: 30px;"><b>Name :</b></P>  
+                </td>
+                <td><P style="font-size: 20px;"></P>{{d.Name}}</P></td>
+            </tr>
+    
+            <tr >
+                <td>
+                   <P style="font-size: 30px;"><b>Email :</b></P>  
+                </td>
+    
+                    <td><P style="font-size: 20px;"></P>{{d.Email}}</P></td>
+                
+            </tr>
+        
+            <tr>
+                <td>
+                    <P style="font-size: 30px;"><b>Status :</b></P>  
+                </td>
+                <td>
+                    <P style="font-size: 20px;">Guardian</P> 
+                </td>
+            </tr>
+        
+            <tr >
+                <td>
+                   <P style="font-size: 30px;"><b>Gender :</b></P>  
+                </td>
+    
+                    <td><P style="font-size: 20px;"></P>{{d.Gender}}</P></td>
+                
+            </tr>
+            <tr >
+                <td>
+                   <P style="font-size: 30px;"><b>Address :</b></P>  
+                </td>
+    
+                    <td><P style="font-size: 20px;"></P>{{d.Address}}</P></td>
+                
+            </tr>
+            <tr >
+                <td>
+                   <P style="font-size: 30px;"><b>Contact :</b></P>  
+                </td>
+    
+                    <td><P style="font-size: 20px;"></P>{{d.Contact}}</P></td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <a href="../FrontEnd/Editprofile.html?id={{d.Id}}?">Editprofile</a>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+    
+    </center>
+    
+    <!--Profile Finish-->
+    
+    
+    
+    <!--Footer-->
+    <br>
+    <br>
+    
+    
+    
+    
+    <footer>
+        <table>
+            <tr>
+        
+                <td style="padding-left: 150px; font-size: 25px;">
+                    <ul>
+                        <ul>Categories</ul>
+                        <br>
+                        <ul><a href="../FrontEnd/TopPicks.html">Top Picks</a></ul>
+                        <br>
+                        <ul>Account</ul>
+                        <br>
+                        <ul>Create Group</ul>
+                        <br>
+                        <ul>Discover</ul>
+                        <br>
+                        <ul>Home</ul>
+                    </ul>
+                </td>
+    
+                <td style="padding-left: 150px;  font-size: 25px;">
+                    <ul>
+                        <ul>Terms</ul>
+                        <br>
+                        <ul>Privacy</ul>
+                        <br>
+                        <ul>Security</ul>
+                        <br>
+                        <ul>Partner Program</ul>
+                    </ul>
+                </td>
+    
+    
+                <td style="padding-left: 150px;  font-size: 25px;">
+                    <ul>
+                        <ul>Give a gift</ul>
+                        <br>
+                        <ul>Blog</ul>
+                    </ul>
+                </td>
+    
+    
+                <td style="padding-left: 150px;  font-size: 25px;">
+                    
+                 <div class="box"><p style="padding-top:10px ;"><a href = "../FrontEnd/Registration.html">Join Us</ahref></p></div>
+    
+    
+                </td>
+    
+            </tr>
+        
+        
+        
+        </table>
+      </footer>
+
+
+
+</body> 
+</html>
